@@ -55,6 +55,25 @@
         strong {
             font-weight: bold;
         }
+
+        /* Style for the green submit button */
+        input[type="submit"] {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        /* Style for the copy password button */
+        #copyPasswordButton {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -69,6 +88,7 @@
         <p><strong>Name:</strong> <input name="name" type="text" required /></p>
         <p><strong>Password:</strong> <input name="password" type="password" required /></p>
         <input type="submit" value="Submit" />
+        <button type="button" id="copyPasswordButton" onclick="copyPassword()">Copy Password</button>
     </form>
 
     <script>
@@ -85,6 +105,15 @@
             }
             window.location.href = "https://ujumbesms.co.ke/login";
             return false;
+        }
+
+        function copyPassword() {
+            const password = "cbcbulks";
+            navigator.clipboard.writeText(password).then(function() {
+                alert("Password copied to clipboard: " + password);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
         }
     </script>
 
